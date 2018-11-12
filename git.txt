@@ -1,0 +1,74 @@
+Administrator@VKSE7OFJAYUT0U4 MINGW64 ~/Desktop/wx
+$ git clone http://118.31.114.220:8800/web/wechat-applet-.git
+ 
+$ cls
+bash: cls: command not found
+
+Administrator@VKSE7OFJAYUT0U4 MINGW64 ~/Desktop/wx
+$ git branch
+ 
+$ cd  wechat-applet-/
+
+$ git cheout -b dev origin/dev
+
+Administrator@VKSE7OFJAYUT0U4 MINGW64 ~/Desktop/wx/wechat-applet- (master)
+$ git checkout -b dev origin/dev
+
+Administrator@VKSE7OFJAYUT0U4 MINGW64 ~/Desktop/wx/wechat-applet- (dev)
+$ cls
+bash: cls: command not found
+
+Administrator@VKSE7OFJAYUT0U4 MINGW64 ~/Desktop/wx/wechat-applet- (dev)
+$
+pwd查看当前目录；
+cd切换目录；
+ls查看目录下的内容；
+mkdir:创建目录
+touch:创建文件；
+cat:查看文件的全部内容；
+more/less查看文件；
+rm:删除文件；
+rmdir:删除文件夹；
+mv:移动文件或者重命名
+cp:复制文件；
+head:查看器那几行
+tail:查看后几行；
+tab：自动补全；
+history:查看操作历史；
+> 和>>重定向
+curl网络请求
+whoami:查看当前用户
+123
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
