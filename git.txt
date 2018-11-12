@@ -1,9 +1,6 @@
 Administrator@VKSE7OFJAYUT0U4 MINGW64 ~/Desktop/wx
 $ git clone http://118.31.114.220:8800/web/wechat-applet-.git
  
-$ cls
-bash: cls: command not found
-
 Administrator@VKSE7OFJAYUT0U4 MINGW64 ~/Desktop/wx
 $ git branch
  
@@ -20,6 +17,27 @@ bash: cls: command not found
 
 Administrator@VKSE7OFJAYUT0U4 MINGW64 ~/Desktop/wx/wechat-applet- (dev)
 $
+创建分支： $ git branch mybranch
+切换分支： $ git checkout mybranch
+创建并切换分支： $ git checkout -b mybranch
+更新master主线上的东西到该分支上：$git rebase master
+
+
+
+版本控制：大致分为本地版本控制系统、集中式版本控制系统、分布式版本控制系统
+
+-d   # 删除未跟踪目录以及目录下的文件，如果目录下包含其他git仓库文件，
+     并不会删除（-dff可以删除）。
+
+-f   # 如果 git cofig 下的 clean.requireForce 为true， 那么clean操作需要
+、   -f(--force)来强制执行。
+
+-i   # 进入交互模式
+-
+n   # 查看将要被删除的文 ，并不实际删除文件
+
+
+第一天：
 pwd查看当前目录；
 cd切换目录；
 ls查看目录下的内容；
@@ -38,23 +56,50 @@ history:查看操作历史；
 > 和>>重定向
 curl网络请求
 whoami:查看当前用户
-123
+ssh非对称性加密
+查看配置信息
+git config --list
+查看提交历史：git log
 
+第二天：  
+git add -A/* 全部加入暂存区
+git commit -m '标记'
+git config -global user.name/email配置
+git status 查看仓库状态  
 
+  1 modified被修改  
+   2 绿色代表暂存区的文件 
+   3 untarched files  未追踪的文件（就是首次新添加的文件,从未被纳入版本库的）
 
+git add 将文件放入暂存区
+git checkout 文件名 可以将暂存区的内容还原到工作区（撤销更改）
+git reset --hard 提交ID回到某个存盘点（利用git log 查看提交信息，
+commit 后的一串字符串为提交 id(自动生产的唯一标识)）
+git log 查看库中的存盘点
+ 
+创建master 至少git commit一次
+git branch 分支名称:创建分支
+git branch查看分支
+git checkout 分支名称：切换分支；
 
+git merge  主支： 分合并分支
+git branch -d删除分支名
+git branch -D强制删除分支名
 
+ 2018/11/12/周一
+git远程仓库
+git push 远程仓库地址 分支名称：将分支共享至远程仓库
 
+git pull 远程仓库地址 分支名称：获取分支
 
-
-
-
-
-
-
-
-
-
+共享仓库
+ .git结尾的目录
+  git init --bare必须是裸仓库（没有工作目录的仓库）
+  git remote add 仓库名（自定义地址名）远程仓库地址：
+  git clone 远程仓库地址==mkdir目录 + cd目录下 + git init+ git remote add origin(仓库地址);
+ git remote show  主机名查看主机IP
+ git remote add 变量名（origin） 地址把地址放在变量名中
+ git push origin developer:develope;本地分支添加到原地分支
 
 
 
