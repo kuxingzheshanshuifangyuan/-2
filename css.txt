@@ -1,1 +1,151 @@
 button::after {border:none;}去除bottom默认边框
+相邻兄弟选择器：input[type==checkbox]+label
+              可选择紧接在另一元素后的元素，且二者有相同父元素。
+
+ <div class="checkbox">
+       <input type="checkbox" name="rememb" id="remPass" value="1"> <label for="remPass">记住密码 </label>
+ <label style="float: right;" onclick="forgetPass()">忘记密码？</label>
+    </div>
+
+input[type="checkbox"]+label::before {
+	content: "\a0";
+	display: inline-block;
+	/* vertical-align: 2px; */
+	width: 15px;
+	height: 15px;
+	margin-right: 10px;
+	border-radius: 3px;
+	background-color: #fff;
+	text-indent: 1.5px;
+	line-height: 13px;
+	border: 1px solid #d6d6d6;
+}
+
+
+/*选中时的样子*/
+
+input[type="checkbox"]:checked+label::before {
+	content: "\2714";
+	background-color: #ff4c4d;
+	color: #fff;
+	border: 1px solid #ff4c4d;
+}
+
+
+/*将原来的框剪切*/
+
+input[type="checkbox"] {
+	position: absolute;
+	clip: rect(0, 0, 0, 0);
+}
+
+
+/*鼠标移上去时*/
+
+input[type="checkbox"]:hover+label::before {
+	border: 1px solid #ff4c4d;
+}
+
+
+/*禁止使用时*/
+
+input[type="checkbox"]:disabled+label::before {
+	background-color: gray;
+	box-shadow: none;
+	color: #555;
+}
+
+.checkbox label {
+	padding-left: 0px !important;
+}
+
+疑问
+1框内高度自适应
+2布局分左右两部分   
+3左固定，使用display:inline-block
+4右设定宽，float：right->框内使用float：left;
+
+
+-----------------------------------------------
+<span>...</span>
+
+<a>...</a>  链接
+
+<br>  换行
+
+<b>...</b>  加粗
+
+<strong>...</strong>  加粗
+
+<img >  图片
+
+<sup>...</sup>  上标
+
+<sub>...</sub>  下标
+
+<i>...</i>  斜体
+
+<em>...</em>  斜体
+
+<del>...</del>  删除线
+
+<u>...</u>  下划线
+
+<input>...</input>  文本框
+
+<textarea>...</textarea>  多行文本
+
+<select>...</select>  下拉列表
+
+html块级元素：
+
+<address>...</adderss>   
+
+<center>...</center>  地址文字
+
+<h1>...</h1>  标题一级
+
+<h2>...</h2>  标题二级
+
+<h3>...</h3>  标题三级
+
+<h4>...</h4>  标题四级
+
+<h5>...</h5>  标题五级
+
+<h6>...</h6>  标题六级
+
+<hr>  水平分割线
+
+<p>...</p>  段落
+
+<pre>...</pre>  预格式化
+
+<blockquote>...</blockquote>  段落缩进   前后5个字符
+
+<marquee>...</marquee>  滚动文本
+
+<ul>...</ul>  无序列表
+
+<ol>...</ol>  有序列表
+
+<dl>...</dl>  定义列表
+
+<table>...</table>  表格
+
+<form>...</form>  表单
+
+<div>...</div>
+
+
+
+2018/11/14/周三 京东布局
+a标签内包含div,i标签；display:block;
+span独占一行使用display:block;
+首行框内内容加padding-top,不用选边框模式；
+选项栏：title使用float
+列表使用定位，左部使用相对定位，右不是用定
+位使用浮动并且小块使用white-space: nowrap;
+布局方面使用dl（一行） dt（标题） dd布局（小块） 
+行内元素包含行内元素或者行内快元素时，
+行内垂直居中失效，需要在前面的行内元素添加vertical-align: middle;
