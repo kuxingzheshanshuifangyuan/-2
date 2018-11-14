@@ -1,0 +1,111 @@
+? 1、用<div>包含一个<img>标签时，<img>标签里面的图片下会有一条白色的缝隙
+解决方法：因为<img>标签默认是底部对齐，此时只需要给<img>标签加一个display：block的属性将其转换为块状元素即可。
+
+2、使用列表制作二级导航的时候，二级列表会相对于一级列表有一定的偏差
+解决方法：将二级列表设为绝对定位并且清楚浮动即可
+
+3、关于电脑端页面的布局，由于现在电脑端和手机端的UI基本都是分开来制作，所以在进行电脑端页面布局的时候保证正常的分辨率的情况下显示正常即可，如果使用百分比布局所有的元素单位都要使用百分比，否则在页面大小发生变化的时候不同块会发生一定程度的偏移。
+
+4、关于布局时候的居中问题，line-height是内容的垂直居中而不是元素的垂直居中，元素的垂直居中可以利用内联元素设置vertical-align:middle来实现，在确定高度的情况下也可以通过设置margin或者padding来实现。
+
+5、关于absolute的相对位置的问题
+当使用absolute定位的时候，其相对位置是以上一级有position的元素的位置为基准的，上一级中没有则上上一级，依次，直至到body元素，则以body元素的位置为基准。
+
+6、同时使用vertical-align和line-height对于元素位置的影响
+解决方法：当文字和图片处于同一行的时候，设置vertical-align：middle和line-height：center并不能使文字和图片都处于中间从而实现文字和图片的居中对齐。
+
+此时让上级元素的高和图片的高相同，在图片属性中设置vertical-align：top，同时设置文字的height和line-height即可居中。
+
+
+7、浮动的清除方法
+
+（1）空标签方法：使用一个空标签设置其属性为clear：both，或者直接调用clearfix类（clearfix类的写法在下面）
+
+（2）overflow：hidden加在浮动的块的上一级属性中
+
+（3）clearfix方法，将clearfix类直接加在浮动元素的父级元素上即可。
+
+clearfix代码：
+
+.clearfix:after {?
+? ? content:"";?
+? ? display:block;?
+? ? height:0;?
+? ? clear:both;?
+}?
+.clearfix {*zoom:1;}
+
+
+8、IE浏览器中使用a标签套img标签会出现边框的问题
+
+解决方法：设置img和a标签的border：0即可
+
+
+9、z-index的使用
+
+z-index只能在position属性值为relative或absolute或fixed的元素上有效。
+z-index值只决定同一父元素中的同级子元素的堆叠顺序。父元素的z-index值（如果有）为子元素定义了堆叠顺序（css版堆叠“拼爹”）。 ?
+向上追溯找不到含有z-index值的父元素的情况下，则可以视为自由的z-index元素，它可以与父元素的同级兄弟定位元素或其他自由的定位元素来比较z-index的值， ?
+决定其堆叠顺序。同级元素的z-index值如果相同，则堆叠顺序由元素在文档中的先后位置决定，后出现的会在上面。 ?
+所以如果当你发现一个z-index值较大的元素被值较小的元素遮挡了，请先检查它们之间的dom结点关系，多半是因为其父结点含有激活并设置了z-index值的position定位元素。 ?
+1input元素和textarea元素在移动端显示，出现上阴影：
+
+input[type="text"] {
+
+-webkit-appearance: none;
+}
+
+textarea{
+-webkit-appearance: none;
+}
+
+
+2、元素背景透明文字（子元素）不透明
+
+background: rgba(255,255,1,0.55);//前三位参数为16进制色值，末尾参数为透明度
+
+
+3、z-index设置元素层叠顺序的前提：元素的position样式为relative || absolute || fixed三者之一
+
+4、页面插入img元素，图片下方有空白
+? ? 由于img元素的默认垂直对其方式vertical-align: baseline;该元素放置在父元素的基线上；
+? ? 解决方案：img{display: block;} || img{vertical-align: middle;} || img父元素{line-height: 0;} || img父元素{font-size: 0;}
+? ? CSS2规范，对于inline-block元素，如果没有设置overflow: visible || 子元素没有inline元素则该inline-block元素的基线就是margin-bottom上边缘；否则，该元素基线是子元素最后一行内联元素的基线。
+
+5、元素背景图片的位置区域
+background-clip: border-box | padding-box | content-box;//背景的绘制区域设定
+
+6、单选按钮绑定的label标签文字内容下沉
+label{vertical-align: top;}
+
+7、内层div设margin-top失效
+? ? 当两个容器嵌套时，如果外层容器和内层容器之间没有别的元素，有些浏览器会把内层元素的margin-top作用于父元素；
+? ? 解决方案：父元素{overflow: hidden;} || 子元素{padding-top: **px;}
+? ? 子元素是父元素的第一个非空元素，margin-top出错，引发问题“外边距合并”（collapsing margins）；“垂直外边距合并”的条件，父元素没有border和padding，且与第一个子元素之间没有任何间隔；
+ 20:04 2018/11/14/周三
+//w3c event 对象属性全是只读不可写的
+事件对象
+var event = {
+	bubbles: true | flase,//事件是否冒泡
+	cancelable: true | flase,//是否可以取消事件默认行为
+	currentTarget: Element,//当前正在处理的元素
+	defaultPrevented: true | flase,//true表示已经调用了preventDefault()(DOM3级事件中新增)
+	detail: Integer,//与事件相关的细节信息
+	eventPhase: Integer,//调用事件处理程序的阶段：1表示捕获阶段，2表示处于目标阶段，3表示冒泡阶段
+	preventDefaule(): Function,//取消事件默认行为。如果cancelable为true，则可以使用这个方法
+	stopImmediatePropagation(): Function,//取消事件的进一步捕获或冒泡，同时阻止任何事件处理程序被调用(DOM3级事件中新增)
+	stopPropagetion(): Function,//取消事件的进一步捕获或冒泡，如果bubbles为true，则可以使用这个方法
+	target: Element,//事件的目标
+	trusted: true | flase,//true表示事件是浏览器生成的 false表示事件是开发人员通过JavaScript创建的(DOM3级事件中新增)
+	type: String,//被触发的事件类型
+	view: AbstractView,//与事件关联的抽象视图，等同于发生事件的window对象
+}
+//IE event 前两个可读可写，后两个只读不可写
+var event = {
+	cancelable: true | flase,//默认为false，设为false可以取消事件冒泡
+	returnValue: true | flase,//默认为true，设为false可以取消事件默认行为
+	srcElement: Element,//事 件目标
+	type: String,//被触发的事件类型
+}
+
+
