@@ -104,9 +104,8 @@ git pull 远程仓库地址 分支名称：获取分支
  git remote add 变量名（origin） 地址把地址放在变量名中
  git push origin developer:develope;本地分支添加到原地分支
 
-
-
-
+ git push --set-upstream origin master。其中的origin是你在clone远程代码时，git为你创建的指向这个远程代码库的标签，它指向repository。为了能清楚了解你要指向的repository，可以用命令git remote -v进行查看。master是你远程的branch，可以用git branch -a查看所有分支，远程分支是红色的部分。然后确定好这两个值后，将值换掉即可。
+ 
 
 
 
