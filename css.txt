@@ -148,4 +148,33 @@ span独占一行使用display:block;
 位使用浮动并且小块使用white-space: nowrap;
 布局方面使用dl（一行） dt（标题） dd布局（小块） 
 行内元素包含行内元素或者行内快元素时，
-行内垂直居中失效，需要在前面的行内元素添加vertical-align: middle;
+行内有mg元素 行内垂直居中失效，需要 给img添加vertical-align: middle;
+兼容ie8:阴影写法box-shadow，-webkit-box-shawn,-moz-box-shadow,
+box-shadow:
+ 对字体进行抗锯齿渲染可以使字体看起来会更清晰舒服:-webkit-font-smoothing: antialiased;
+10:05 2018/11/15/周四
+爬虫技术
+    window.pageConfig = {
+      compatible: true,
+      preload: false,
+      navId: "jdhome2016",
+	  timestamp: 1542246433000, 
+      isEnablePDBP: 0,
+		surveyTitle : "调查问卷",
+		surveyLink : "//surveys.jd.com/index.php?r=survey/index/sid/889711/newtest/Y/lang/zh-Hans",
+		leftCateABtestSwitch : 0,
+		enjoyType : "S2",
+		"" : ""
+    };
+京东加载不同页面pc或者移动端
+
+
+    !function(n){function o(n){for(var o=n+"=",t=document.cookie.split(";"),e=0;e<t.length;e++){for(var i=t[e];" "==i.charAt(0);)i=i.substring(1,i.length);if(0==i.indexOf(o))return i.substring(o.length,i.length)}return null}var t=o("pcm"),e=n.navigator.userAgent.toLocaleLowerCase(),i="//m.jd.com",r=/iphone|android|symbianos|windows\sphone/g,c=/micromessenger|qq\/[\d.]+/i;return c.test(e)?(n.location.href="//wqs.jd.com/?from=jdindex",!1):r.test(e)&&"1"!=t?(n.location.href=i,!1):void 0}(window);
+------------------------------------------------------
+按钮cursor: pointer;
+判断获取元素是字符串还是数字
+ function ab(id) {
+            return typeof id==='string'?document.getElementById(id):id;
+        }
+  -----------------------------------------------------------------------
+ 底部有留白，处理技巧:布局时候有内容超出预设的高度，

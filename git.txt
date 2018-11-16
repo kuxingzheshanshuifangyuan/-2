@@ -1,4 +1,4 @@
-Administrator@VKSE7OFJAYUT0U4 MINGW64 ~/Desktop/wx
+rmdirAdministrator@VKSE7OFJAYUT0U4 MINGW64 ~/Desktop/wx
 $ git clone http://118.31.114.220:8800/web/wechat-applet-.git
  
 Administrator@VKSE7OFJAYUT0U4 MINGW64 ~/Desktop/wx
@@ -31,6 +31,7 @@ $
 
 -f   # 如果 git cofig 下的 clean.requireForce 为true， 那么clean操作需要
 、   -f(--force)来强制执行。
+-r 递归删除
 
 -i   # 进入交互模式
 -
@@ -60,7 +61,9 @@ ssh非对称性加密
 查看配置信息
 git config --list
 查看提交历史：git log
-
+11:13 2018/11/15/周四
+在本地仓库的目录下调用命令行删除根目录下的.git文件夹，输入
+find . -name ".git" | xargs rm -Rf
 第二天：  
 git add -A/* 全部加入暂存区
 git commit -m '标记'
