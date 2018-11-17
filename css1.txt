@@ -107,5 +107,68 @@ var event = {
 	srcElement: Element,//事 件目标
 	type: String,//被触发的事件类型
 }
+制作伪元素小三角
+.mobile_static:before {
+    content: "";
+    position: absolute;
+    display: block;
+    top: -9px;
+    left: 50%;
+    margin-left: -5px;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #fff #000 #00ff00 #ff4400;
+a标签
+<a herf="javascript:代码">点击后执行对应的javascript脚本</a>
+标签嵌套规则
+一.
+所谓的不可自由嵌套的元素就是里面只能放内联元素的，它们包括有：标题标记的<h1>、<h2>、<h3>、<h4>、<h5>、<h6>、<caption>；段落标记的<p>；分隔线<hr>和一个特别的元素<dt>(它只存在于列表元素<dl>的子一级)。
+二.
+在内联元素中，还是可以再区分一下，有几个元素（<img>、<input>等）比较特别，它们可以定义宽
+三.
+当一个函数被保存为对象的一个属性时，我们称它为一个方法。当一个对象的方法被调用时，this被绑定到调用方法的对象。
+四.
+a----1
+ 
+ b----2 
+a----1
+ 
+b----3
 
+addOne----function(b) {
+         
+console.log('a----'+a);
+       
+console.log('b----'+b);
 
+     
+     return a + b;
+
+        
+}
+ 
+addOne(2)----3
+ 
+addOne(3)---4
+函数
+  function makeAdder(a) {
+        return function(b) {
+            console.log('a----'+a);
+            console.log('b----'+b);
+
+            return a + b;
+
+        };
+    }
+
+    // 特定函数
+    var addOne = makeAdder(1);
+  let a= addOne(2);  // 3
+   let b= addOne(3);  // 4
+    console.log('addOne----'+makeAdder(1) );
+    console.log('addOne(2)----'+a);
+    console.log('addOne(3)---'+b);
