@@ -9,7 +9,7 @@ $ cd  wechat-applet-/
 $ git cheout -b dev origin/dev¥Â¿Ô
 
 Administrator@VKSE7OFJAYUT0U4 MINGW64 ~/Desktop/wx/wechat-applet- (master)
-$ git checkout -b dev origin/dev
+$ git checkout -b dev origin/devcd ..de
 
 Administrator@VKSE7OFJAYUT0U4 MINGW64 ~/Desktop/wx/wechat-applet- (dev)
 $ cls

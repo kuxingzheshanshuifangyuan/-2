@@ -1,0 +1,6 @@
+vue
+1使用引入样式
+@import '~iview/src/styles/index.less';
+需要less版本3.0一下或者2.7.3版本。
+2vue-cli安装 npm install less less-loader --save-dev时候不用配置less,
+脚手架自动配置 
