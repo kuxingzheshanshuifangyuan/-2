@@ -4,3 +4,37 @@ vue
 需要less版本3.0一下或者2.7.3版本。
 2vue-cli安装 npm install less less-loader --save-dev时候不用配置less,
 脚手架自动配置 
+vue侦听器：
+但需要在数据变化执行异步或者开销较大的操作，这个方法最有用；
+3.当直接在 DOM 中使用一个组件 (而不是在字符串模板或单文件组件) 
+的时候，我们强烈推荐遵循 W3C 规范中的自定义组件名 (字母全小写
+且必须包含一个连字符)。这会帮助你避免和当前以6及未来的 HTML 元
+素相冲突。
+4.当匹配目标路由时，会<router-link>自动获取.router-link-active类
+5要导航到其他URL，请使用router.push
+6重定向意味着用户访问时/a，URL将替换为/b，然后匹配为/b
+7.只有分支是不行的还主要主支的支持
+8。LoadingBar.start() 会模拟进度
+9.dispatch：含有异步操作，例如向后台提交数据，写法： this.$store.dispatch('mutations方法名',值)
+10.commit：同步操作，写法：this.$store.commit('mutations方法名',值)
+less
+1.@ 符号定义变量，使用 @ 符号获取变量，仅仅将 @变量名 看成是一个字符串。
+2  以xxx开头的用&连接
+如下以ant开头
+  .ant-{
+    &form-explain{}
+    &select-selection{}
+}
+3.样式居中position:absolute;
+top:0;transform:translateY()
+4:兼容写法边框阴影
+-webkit-box-shadow: 0px 4px 24px 0px rgba(114, 114, 114, 0.75);
+    -moz-box-shadow: 0px 4px 24px 0px rgba(114, 114, 114, 0.75);
+    box-shadow: 0px 4px 24px 0px rgba(114, 114, 114, 0.75);
+4.父级是绝对定位可以作为子级绝对定位的参考线
+5.box-sizing兼容ie8;
+6.在body标签里可以设置line-height间距大小（1.5）
+7.如果用了封装组件的话，比如element，这个时候使用按键修饰符需要加上.native
+ 例如：@keydown.enter.native="handleSubmit"
+
+ 
