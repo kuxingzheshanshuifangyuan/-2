@@ -27,6 +27,15 @@ less
 }
 3.样式居中position:absolute;
 top:0;transform:translateY()
+4.布局遇到问题
+form提交表单只能有一个，prop验证在表头写入:rulers="验证对象名"，
+:model='对象'，获取的数据， ref是要绑定的获取数据对象
+11 // 使用对象展开运算符将 getter 混入 computed 对象中
+            ...mapGetters([
+                'filteredList'
+            ])
+12,vue路由选项卡问题
+  
 4:兼容写法边框阴影
 -webkit-box-shadow: 0px 4px 24px 0px rgba(114, 114, 114, 0.75);
     -moz-box-shadow: 0px 4px 24px 0px rgba(114, 114, 114, 0.75);
@@ -36,5 +45,50 @@ top:0;transform:translateY()
 6.在body标签里可以设置line-height间距大小（1.5）
 7.如果用了封装组件的话，比如element，这个时候使用按键修饰符需要加上.native
  例如：@keydown.enter.native="handleSubmit"
+8插槽：
+    一。单个插槽（默认插槽|匿名插槽）
+   具名插槽  有名称属性（name）
+     二。  匿名插槽
+          <slot></slot>
+     三。   具名插槽
+           <slot name="up"></slot>
+   作用域插槽（带数据的插槽）
+        <slot name="up" :data="data"></slot>
+            export default {
+              data: function(){
+                return {
+                   data:                   ['zhangsan','lisi','wanwu','zhaoliu','tianqi','xiaoba']
+                 }
+               },
+           }
+        四。对内容分发<插槽>的理解可以是占位符，标签替换，插槽
+             父组件中属性放入带有狭槽的内容，然后这些内容就会被分
+             发到子组件中特殊的slot元素，根据name属性在子组件中重
+             新组合，替换。
+             例子：<!--父组件>
+               <div id="parent">
+                   <child>
+                     <p slot="one">一些内容</p>
+                     <p slot="two">另外一些内容</p>
+                     <p >不带slot属性的标签</p>
 
- 
+                   <child>
+               </div>
+               <!----子组件>
+                 <div id="child">
+                      <slot><h1>默认替换不带slot的元素</h1> <slot>
+                     <slot name="one">会被替换成父组件中slot="one"的元素</slot>
+                     <slot name="two">会被替换成父组件中slot="one"的元素 </slot>
+                     <p > 子组件自己的标签</p>
+
+                   
+               </div>
+               渲染成
+                <div>
+                     <p>不带slot属性的标签 <slot>
+                     <p>一些内容</p>
+                     <p>另外一些内容</p>
+                     <p > 子组件自己的标签</p>
+
+                   
+               </div> 
