@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<title>Document</title>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+<input v-model='search' />
+<ul v-for="item in searchData ">
+<li>{{item.name}},价格:￥{{item.price}}</li>
+</ul>
+</div>
+
+
+<script>
+var vm = new Vue({
+el: '#app',
+data: {
+search: '',
+products: [
+    {name: '苹果',price: 25,category: "水果"}, 
+    {name: '香蕉',price: 15,category: "水果"},
+    {name: '雪梨',price: 65,category: "水果"},
+    {name: '苹梨',price: 2500,category: "汽车"},
+    {name: '奔驰',price: 10025,category: "汽车"}, 
+    {name: '柑橘',price: 15,category: "水果"},
+    {name: '奥迪',price: 25,category: "汽车"}
+]
+},
+computed: {
+    // searchData: function() {
+    //  var search = this.search;
+    //  if (search) {
+    //     return this.products.filter(function(product) {
+            
+    //         console.log(Object.keys(product))//["name", "price", "category"]
+    //     // return Object.keys(product).some(function(key) {
+    //     // console.log(product[key])
+    //     // return String(product[key]).indexOf(search) > -1
+
+    //     //  })//product['name'].indexOf(search) > -1
+    //     })
+    // }
+    // return this.products;
+    // }
+    searchData: function() {
+     var search = this.search;
+     if (search) {
+        return this.products.filter( 
+       // console.log(Object.keys(product))//["name", "price", "category"]
+        // return Object.keys(product).some(function(key) {
+        // console.log(product[key])//香蕉 15 水果
+        // return String(product[key]).indexOf(search) > -1
+
+        //  })
+           item=>item['name'].indexOf(this.search)>-1
+
+        
+         )
+    }
+    // if (search) {
+    //     return this.products.filter( 
+    //    //console.log(Object.keys(product))//["name", "price", "category"]
+    //    item=>item.indexOf(this.search)>-1
+       
+    //     )
+    // }
+    return this.products;
+    }
+},   
+ 
+})
+</script>
+
+
+</body>
+</html>

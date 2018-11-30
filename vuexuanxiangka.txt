@@ -1,0 +1,76 @@
+<router-link>组件支持用户在具有路由功能中的点击导航。通过to属性指向目标地址，默认渲染成正确的a标签
+
+1.to属性 字符串或是对象类型
+
+点击会立刻把内部to值传送到router.push()
+
+例：<router-link to="/Home">Home</router-link>
+
+　　<router-link :to="{name:'Home'}">Home</router-link>
+
+　　渲染结果：<a href="Home">Home</a>
+
+2.replace属性 布尔类型值
+
+设置replace话，点击调用router.replace();导航就不会留下history记录
+
+例：<router-link :to="{name:'Home'}" replace>Home</router-link>
+
+3.append属性 布尔类型值
+
+设置该属性后，则在当前的相对路径前加上基路径
+
+例如，我们从 /a 导航到一个相对路径 b，如果没有配置 append，则路径为 /b，如果配了，则为 /a/b
+
+4.tag属性字符串类型
+
+如果想把<router-link>渲染成自定义标签，
+<router-link :to="{name:'Home'}" tag="li">Home</router-link>
+渲染结果：<li>Home</li>
+5.active-class属性字符串类型（默认router-link-active）
+设置链接激活时使用CSS类名，默认通过linkActiveClass来全局配置
+6.exact属性布尔类型值（默认false）//精确匹配
+
+是否激活默认类名的依据是 inclusive match （全包含匹配）
+<!-- 这个链接只有在地址为/的时候被激活 -->
+<router-link to=”/” exact></router-link>
+
+7.event属性字符串类型值或者是数组字符串
+
+声明可以用来触发导航事件，
+
+8.exact-active-class属性字符串类型值（默认router-link-exact-active）
+
+配置当链接被精准匹配时候激活class，可通过linkExactActiveClass进行全局配置
+ 案例
+    <ul>
+            <li class="Intention-list" v-for="(item ,index) in menuLeftList[AdmissionsIntent]" :key="index">
+                <router-link 
+                :to="{name:item.name}"
+                exact
+                active-class="hightlight"
+                class="line"
+                >
+              {{item.meta.title}} 
+                </router-link>
+            </li>
+        </ul>
+     ul{
+          .Intention-list{
+             margin:0 30px;
+             font-size: 16px;
+             color: #4f4f4f;
+            float: left;
+            position: relative;
+            .line{
+             color: #4f4f4f;
+            }
+            .hightlight:after{
+               content: "";
+                border: 2px solid #1697f5;
+                position: absolute;
+                top: 56px;
+                width:100%;
+            }
+          }
+      }
